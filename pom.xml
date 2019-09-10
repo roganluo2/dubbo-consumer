@@ -4,10 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
     <groupId>com.my.dubbo</groupId>
     <artifactId>dubbo-consumer</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.1-SNAPSHOT</version>
     <modules>
         <module>dubbo-consumer-client</module>
     </modules>
@@ -17,6 +23,11 @@
     <dependencyManagement>
 
        <dependencies>
+           <dependency>
+               <groupId>org.apache.dubbo</groupId>
+               <artifactId>dubbo-spring-boot-starter</artifactId>
+               <version>2.7.1</version>
+           </dependency>
            <dependency>
                <groupId>org.apache.dubbo</groupId>
                <artifactId>dubbo</artifactId>
@@ -35,7 +46,7 @@
            <dependency>
                <groupId>com.my.dubbo</groupId>
                <artifactId>dubbo-provider-api</artifactId>
-               <version>1.0-SNAPSHOT</version>
+               <version>1.1-SNAPSHOT</version>
            </dependency>
            <dependency>
                <groupId>org.apache.curator</groupId>
@@ -50,6 +61,13 @@
 
        </dependencies>
     </dependencyManagement>
-
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
